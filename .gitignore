@@ -1,0 +1,33 @@
+# packages
+/elpa/
+/straight/
+
+# byte
+*.elc
+
+# backup
+*~
+\#*\#
+/auto-save-list/
+/backup/
+
+/.emacs.desktop
+/.emacs.desktop.lock
+/session.*
+/.lsp-session*
+
+/tramp/
+tramp
+/server/
+/network-security.data
+
+/eshell/
+projects*
+recentf*
+
+.org-id-locations
+*_archive
+
+.dir-locals.el
+
+/tutorial/
