@@ -4,6 +4,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	c-electric-delete-forward
 	crux-smart-kill-line
 	evil-backward-char
 	evil-change
