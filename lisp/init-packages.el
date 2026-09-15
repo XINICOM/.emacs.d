@@ -29,11 +29,11 @@
   (counsel-mode 1)                 ; 启用 counsel-mode（会自动绑定部分常用键，如 M-x, C-x C-f）
   )
 ;; 3. 配置 Swiper（对搜索的增强）
-(use-package swiper
-  :ensure t
-  :after ivy                       ; 关键：确保在 Ivy 加载后配置
-  :bind
-  ("C-s" . swiper))
+;; (use-package swiper
+;;   :ensure t
+;;   :after ivy                       ; 关键：确保在 Ivy 加载后配置
+;;   :bind
+;;   ("C-s" . swiper))
 
 
 ;; (use-package company
@@ -63,7 +63,8 @@
   :after (ivy counsel)
   :config
   (setq ivy-posframe-display-functions-alist
-        '((swiper . ivy-posframe-display-at-frame-center)
+        '(
+	  ;; (swiper . ivy-posframe-display-at-frame-center)
           (complete-symbol . ivy-posframe-display-at-point)
           (counsel-M-x . ivy-posframe-display-at-frame-center)
           (counsel-find-file . ivy-posframe-display-at-frame-center)
