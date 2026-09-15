@@ -4,8 +4,15 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+	c-electric-brace
 	c-electric-delete-forward
+	c-electric-paren
+	c-electric-semi&comma
+	c-electric-slash
+	c-electric-star
+	crux-move-beginning-of-line
 	crux-smart-kill-line
+	electric-newline-and-maybe-indent
 	evil-backward-char
 	evil-change
 	evil-delete
@@ -15,9 +22,15 @@
 	evil-next-line
 	evil-normal-state
 	evil-previous-line
+	forward-to-word
+	handle-switch-frame
+	ignore-preserving-kill-region
+	lsp-ui-doc--handle-mouse-movement
+	mouse-set-region
 	wdired--self-insert
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	crux-duplicate-current-line-or-region
 	))
