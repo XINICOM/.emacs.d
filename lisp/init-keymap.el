@@ -9,4 +9,8 @@
 (global-set-key (kbd "C-=") 'text-scale-adjust)
 (global-set-key (kbd "C--") 'text-scale-adjust)
 
+(global-set-key (kbd "M-] e") 'flymake-goto-next-error)
+(global-set-key (kbd "M-[ e") 'flymake-goto-prev-error)
+
+
 (provide 'init-keymap)

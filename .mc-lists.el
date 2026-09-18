@@ -26,6 +26,7 @@
 	handle-switch-frame
 	ignore-preserving-kill-region
 	lsp-ui-doc--handle-mouse-movement
+	mc--insert-number-and-increase
 	mouse-set-region
 	wdired--self-insert
 	))

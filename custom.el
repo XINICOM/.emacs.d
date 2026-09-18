@@ -5,7 +5,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(ace-window benchmark-init company crux drag-stuff ivy-posframe
+   '(ace-window benchmark-init company crux drag-stuff ivy-posframe magit
 		restart-emacs smart-mode-line vscode-dark-plus-theme)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

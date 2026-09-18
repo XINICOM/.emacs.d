@@ -31,3 +31,5 @@ recentf*
 .dir-locals.el
 
 /tutorial/
+
+.dap-*
