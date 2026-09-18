@@ -15,13 +15,17 @@
 	electric-newline-and-maybe-indent
 	evil-backward-char
 	evil-change
+	evil-copy-from-above
 	evil-delete
+	evil-delete-char
 	evil-forward-char
 	evil-inner-word
 	evil-insert
 	evil-next-line
 	evil-normal-state
+	evil-paste-last-insertion
 	evil-previous-line
+	evil-shift-left-line
 	forward-to-word
 	handle-switch-frame
 	ignore-preserving-kill-region

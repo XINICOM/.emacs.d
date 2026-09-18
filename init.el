@@ -21,10 +21,11 @@
 (require 'init-elpa) ; init the elpa package config, did not announce any package
 (require 'init-packages)
 
-;; maybe I don't need vim mode
-(require 'init-evil)
 
 (require 'init-keymap)
+
+;; maybe I don't need vim mode
+(require 'init-evil)
 
 (require 'init-ui)
 
