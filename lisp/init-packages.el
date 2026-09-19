@@ -105,9 +105,10 @@
 (use-package multiple-cursors
   :bind (("C-M-n" . mc/mark-next-like-this)            ; 添加下一个匹配项
          ("C-M-p" . mc/mark-previous-like-this)        ; 添加上一个匹配项
-         ("C-c C-<" . mc/mark-all-like-this)           ; 标记所有匹配项
-         ("C-S-c C-S-c" . mc/edit-lines)               ; 为选中区域每一行添加光标
-         ("C-S-<mouse-1>" . mc/add-cursor-on-click)))  ; 鼠标点击添加光标
+))
+         ;; ("C-c C-<" . mc/mark-all-like-this)           
+         ;; ("C-S-c C-S-c" . mc/edit-lines)               
+         ;; ("C-S-<mouse-1>" . mc/add-cursor-on-click)))  
 
 
 

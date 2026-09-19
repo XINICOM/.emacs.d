@@ -10,6 +10,7 @@
 	c-electric-semi&comma
 	c-electric-slash
 	c-electric-star
+	comment-dwim
 	crux-move-beginning-of-line
 	crux-smart-kill-line
 	electric-newline-and-maybe-indent
@@ -17,10 +18,13 @@
 	evil-change
 	evil-copy-from-above
 	evil-delete
+	evil-delete-backward-char-and-join
 	evil-delete-char
+	evil-force-normal-state
 	evil-forward-char
 	evil-inner-word
 	evil-insert
+	evil-insert-state
 	evil-next-line
 	evil-normal-state
 	evil-paste-last-insertion
@@ -30,12 +34,16 @@
 	handle-switch-frame
 	ignore-preserving-kill-region
 	lsp-ui-doc--handle-mouse-movement
-	mc--insert-number-and-increase
 	mouse-set-region
+	save-some-buffers
 	wdired--self-insert
 	))
 
 (setq mc/cmds-to-run-once
       '(
+	compile
 	crux-duplicate-current-line-or-region
+	find-file
+	mc--insert-letter-and-increase
+	mc--insert-number-and-increase
 	))
