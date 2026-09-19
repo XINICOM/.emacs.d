@@ -4,6 +4,7 @@
   :init
   ;; (setq evil-overriding-maps nil)
   ;; (setq evil-want-keybinding nil)
+  (setq evil-undo-system 'undo-redo)
   (setq evil-want-C-u-scroll t)
   (with-eval-after-load 'evil-maps
     (define-key evil-motion-state-map (kbd "RET") nil)))
