@@ -27,6 +27,7 @@
     (kbd "C-k") 'crux-smart-kill-line
     (kbd "C-j") 'newline-and-indent
     (kbd "C-o") 'open-line
+    (kbd "C-y") 'yank
 
     (kbd "C-M-j") 'mc/mark-next-like-this
     (kbd "C-M-k") 'mc/mark-previous-like-this
