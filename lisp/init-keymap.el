@@ -5,6 +5,7 @@
 (global-set-key (kbd "M-f") 'forward-to-word)
 
 (global-set-key (kbd "M-c") 'compile)
+;; (global-set-key (kbd "M-s") 'shell)
 
 (global-set-key (kbd "C-=") 'text-scale-adjust)
 (global-set-key (kbd "C--") 'text-scale-adjust)
