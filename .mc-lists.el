@@ -43,6 +43,7 @@
       '(
 	compile
 	crux-duplicate-current-line-or-region
+	evil-goto-mark-line
 	find-file
 	mc--insert-letter-and-increase
 	mc--insert-number-and-increase

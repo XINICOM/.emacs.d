@@ -79,18 +79,37 @@
   :bind (("C-x o" . 'ace-window)
 	 ("M-o" . 'ace-window)))
 
+(use-package kotlin-mode)
+
 ;; https://emacs-lsp.github.io/lsp-mode/page/installation/
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-c l")
   :hook ((c-mode . lsp-deferred)
          (c++-mode . lsp-deferred)
+         (kotlin-mode . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred))
 (use-package lsp-ui :commands lsp-ui-mode)
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
 (use-package dap-mode)
+
+
+(with-eval-after-load 'lsp-mode
+    ;; 定义 kotlin-lsp 的启动命令
+    (defun lsp-kotlin-jb-start (port)
+	"启动官方 Kotlin LSP 并连接到指定端口。"
+	(list "D:/kotlin-server-263.6379.0.win/bin/intellij-server.exe"
+	      "--socket" (number-to-string port)))
+
+    ;; 注册自定义 LSP 客户端
+    (lsp-register-client
+	(make-lsp-client
+	    :new-connection (lsp-tcp-connection 'lsp-kotlin-jb-start)  ; 使用 TCP 连接模式
+	    :activation-fn (lsp-activate-on "kotlin")                  ; 在 Kotlin 文件中激活
+	    :priority 10                                               ; 优先级，高于默认服务器
+	    :server-id 'kotlin-jb-lsp)))                               ; 服务器唯一标识
 
 
 (use-package yasnippet
