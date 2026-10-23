@@ -1,16 +1,20 @@
 ;; -*- lexical-binding: t; -*-
 
+
 (use-package restart-emacs)
+
 
 (use-package drag-stuff
   :bind (("M-p" . drag-stuff-up)
 	 ("M-n" . drag-stuff-down)))
+
 
 (use-package crux
   :bind (("C-k" . crux-smart-kill-line)
      	 ("C-a" . crux-move-beginning-of-line)
          ("C-x ," . crux-find-user-init-file)
 	 ("C-S-d" . crux-duplicate-current-line-or-region)))
+
 
 ;; 1. 配置基础库 Ivy
 (use-package ivy
@@ -21,6 +25,7 @@
   (ivy-use-virtual-buffers t)      ; 可选，将 recentf/书签纳入虚拟缓冲区
   (enable-recursive-minibuffers t) ; 可选，允许在 minibuffer 中再次触发 minibuffer
   )
+
 ;; 2. 配置 Counsel（对 Emacs 命令的增强）
 (use-package counsel
   :ensure t
@@ -28,6 +33,7 @@
   :config
   (counsel-mode 1)                 ; 启用 counsel-mode（会自动绑定部分常用键，如 M-x, C-x C-f）
   )
+
 ;; 3. 配置 Swiper（对搜索的增强）
 ;; (use-package swiper
 ;;   :ensure t
@@ -40,6 +46,7 @@
 ;;   :hook (after-init . global-company-mode)
 ;;   :config (setq company-minimum-prefix-length 1
 ;;                 company-show-quick-access t))
+
 (use-package company
   :ensure t
   :hook (after-init . global-company-mode)
@@ -53,6 +60,7 @@
                            (company-keywords :with company-yasnippet) 
 			   company-dabbrev-code
 			   company-dabbrev)))
+
 
 (setq lsp-format-buffer-on-save t)
 
@@ -72,15 +80,22 @@
           (t . ivy-posframe-display-at-frame-center))))
 (add-hook 'after-init-hook
           (lambda ()
-            (require 'ivy-posframe)
-            (ivy-posframe-mode 1)))
+		(require 'ivy-posframe)
+		(ivy-posframe-mode 1)))
+
 
 (use-package ace-window
   :bind (("C-x o" . 'ace-window)
 	 ("M-o" . 'ace-window)))
 
-(use-package kotlin-mode)
 
+(use-package kotlin-mode)
+(use-package lsp-pyright
+  :custom (lsp-pyright-langserver-command "pyright"))
+(use-package blacken
+  :ensure t)
+(add-hook 'python-mode-hook 'blacken-mode)
+(use-package csharp-mode)
 ;; https://emacs-lsp.github.io/lsp-mode/page/installation/
 (use-package lsp-mode
   :init
@@ -88,21 +103,18 @@
   :hook ((c-mode . lsp-deferred)
          (c++-mode . lsp-deferred)
          (kotlin-mode . lsp-deferred)
+         (python-mode . lsp-deferred)
+         (csharp-mode . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
-  :commands (lsp lsp-deferred))
-(use-package lsp-ui :commands lsp-ui-mode)
-(use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
-(use-package lsp-treemacs :commands lsp-treemacs-errors-list)
-(use-package dap-mode)
-
-
+  :commands (lsp lsp-deferred)
+  :custom
+      (lsp-csharp-server-install-dir "~/.dotnet/tools"))
 (with-eval-after-load 'lsp-mode
     ;; 定义 kotlin-lsp 的启动命令
     (defun lsp-kotlin-jb-start (port)
 	"启动官方 Kotlin LSP 并连接到指定端口。"
 	(list "D:/kotlin-server-263.6379.0.win/bin/intellij-server.exe"
 	      "--socket" (number-to-string port)))
-
     ;; 注册自定义 LSP 客户端
     (lsp-register-client
 	(make-lsp-client
@@ -110,25 +122,32 @@
 	    :activation-fn (lsp-activate-on "kotlin")                  ; 在 Kotlin 文件中激活
 	    :priority 10                                               ; 优先级，高于默认服务器
 	    :server-id 'kotlin-jb-lsp)))                               ; 服务器唯一标识
+;; (use-package lsp-ui :commands lsp-ui-mode)
+;; (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+;; (use-package dap-mode)
 
 
 (use-package yasnippet
   :ensure t
   :hook (after-init . yas-global-mode))
 
+
 (use-package yasnippet-snippets
   :ensure t
   :after yasnippet)
 
 
+(use-package magit)
+
+
 (use-package multiple-cursors
   :bind (("C-M-n" . mc/mark-next-like-this)            ; 添加下一个匹配项
          ("C-M-p" . mc/mark-previous-like-this)        ; 添加上一个匹配项
-))
          ;; ("C-c C-<" . mc/mark-all-like-this)           
          ;; ("C-S-c C-S-c" . mc/edit-lines)               
          ;; ("C-S-<mouse-1>" . mc/add-cursor-on-click)))  
-
+))
 
 
 (use-package which-key
@@ -141,10 +160,10 @@
 ;;   :config (which-key-mode))
 
 
-(provide 'init-packages)
-
-
 ;; (use-package benchmark-init
 ;;   :init (benchmark-init/activate)
 ;;   :hook (after-init . benchmark-init/deactivate))
+
+
+(provide 'init-packages)
 
