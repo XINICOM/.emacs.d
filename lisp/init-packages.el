@@ -42,11 +42,6 @@
 ;;   ("C-s" . swiper))
 
 
-;; (use-package company
-;;   :hook (after-init . global-company-mode)
-;;   :config (setq company-minimum-prefix-length 1
-;;                 company-show-quick-access t))
-
 (use-package company
   :ensure t
   :hook (after-init . global-company-mode)
@@ -90,12 +85,16 @@
 
 
 (use-package kotlin-mode)
+
 (use-package lsp-pyright
   :custom (lsp-pyright-langserver-command "pyright"))
+
 (use-package blacken
   :ensure t)
 (add-hook 'python-mode-hook 'blacken-mode)
+
 (use-package csharp-mode)
+
 ;; https://emacs-lsp.github.io/lsp-mode/page/installation/
 (use-package lsp-mode
   :init
@@ -109,6 +108,7 @@
   :commands (lsp lsp-deferred)
   :custom
       (lsp-csharp-server-install-dir "~/.dotnet/tools"))
+
 (with-eval-after-load 'lsp-mode
     ;; 定义 kotlin-lsp 的启动命令
     (defun lsp-kotlin-jb-start (port)
@@ -139,6 +139,7 @@
 
 
 (use-package magit)
+(setenv "GIT_CONFIG_GLOBAL" "C:/Users/XINIC/.gitconfig")
 
 
 (use-package multiple-cursors
@@ -153,11 +154,6 @@
 (use-package which-key
     :config
     (which-key-mode))
-
-
-;; (use-package which-key
-;;   :defer nil
-;;   :config (which-key-mode))
 
 
 ;; (use-package benchmark-init
