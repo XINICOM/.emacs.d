@@ -2,6 +2,7 @@
 /elpa/
 /straight/
 .cache/
+history.el
 
 # byte
 *.elc
