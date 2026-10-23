@@ -1,6 +1,7 @@
 # packages
 /elpa/
 /straight/
+.cache/
 
 # byte
 *.elc
