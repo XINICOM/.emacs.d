@@ -20,5 +20,6 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (column-number-mode 1)
+(electric-pair-mode 1)
 
 (provide 'init-startup)
