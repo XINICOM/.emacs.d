@@ -95,6 +95,9 @@
 
 (use-package csharp-mode)
 
+;; 让 .cu 文件默认使用 c++-mode
+(add-to-list 'auto-mode-alist '("\\.cu\\'" . c++-mode)
+)
 ;; https://emacs-lsp.github.io/lsp-mode/page/installation/
 (use-package lsp-mode
   :init
