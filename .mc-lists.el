@@ -14,12 +14,14 @@
 	crux-move-beginning-of-line
 	crux-smart-kill-line
 	electric-newline-and-maybe-indent
+	eval-print-last-sexp
 	evil-backward-char
 	evil-change
 	evil-copy-from-above
 	evil-delete
 	evil-delete-backward-char-and-join
 	evil-delete-char
+	evil-exit-visual-state
 	evil-force-normal-state
 	evil-forward-char
 	evil-inner-word
@@ -30,10 +32,13 @@
 	evil-paste-last-insertion
 	evil-previous-line
 	evil-shift-left-line
+	evil-visual-char
 	forward-to-word
 	handle-switch-frame
+	ignore
 	ignore-preserving-kill-region
 	lsp-ui-doc--handle-mouse-movement
+	markdown-outdent-or-delete
 	mouse-set-region
 	save-some-buffers
 	wdired--self-insert
@@ -43,8 +48,11 @@
       '(
 	compile
 	crux-duplicate-current-line-or-region
+	crux-find-user-init-file
 	evil-goto-mark-line
+	evil-undo
 	find-file
 	mc--insert-letter-and-increase
 	mc--insert-number-and-increase
+	text-scale-adjust
 	))
