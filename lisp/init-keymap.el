@@ -1,4 +1,5 @@
 ;; -*- lexical-binding: t; -*-
+;; when you use evil, some keymap settings will be override in init-evil.el
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
@@ -13,13 +14,12 @@
 (global-set-key (kbd "M-] e") 'flymake-goto-next-error)
 (global-set-key (kbd "M-[ e") 'flymake-goto-prev-error)
 
-(defun smart-open-line-above ()
-  "在当前行上方插入一个空行，并根据当前模式缩进。"
+(defun my-open-line-above ()
+  "在当前行上方插入空行"
   (interactive)
   (move-beginning-of-line nil)
   (newline-and-indent)
-  (forward-line -1)
-  (indent-according-to-mode))
-(global-set-key (kbd "C-o") 'smart-open-line-above)
+  (forward-line -1))
+(global-set-key (kbd "C-o") 'my-open-line-above)
 
 (provide 'init-keymap)

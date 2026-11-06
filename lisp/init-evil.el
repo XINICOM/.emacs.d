@@ -15,6 +15,12 @@
 (global-set-key (kbd "M-n") nil)
 (global-set-key (kbd "M-p") nil)
 
+(defun my-open-line-above ()
+  "在当前行上方插入空行"
+  (interactive)
+  (move-beginning-of-line nil)
+  (newline-and-indent)
+  (forward-line -1))
 (with-eval-after-load 'evil
   ;; reset some key I setted in emacs
   (evil-define-key '(normal visual insert motion) 'global
@@ -25,8 +31,8 @@
     (kbd "C-e") 'move-end-of-line
     (kbd "C-a") 'crux-move-beginning-of-line
     (kbd "C-k") 'crux-smart-kill-line
-    (kbd "C-j") 'newline-and-indent
-    (kbd "C-o") 'open-line
+    ;; (kbd "C-j") 'newline-and-indent
+    (kbd "C-o") 'my-open-line-above
     (kbd "C-y") 'yank
 
     (kbd "C-M-j") 'mc/mark-next-like-this
@@ -61,5 +67,13 @@
   (global-set-key (kbd "M-j") 'drag-stuff-down)
   (global-set-key (kbd "M-k") 'drag-stuff-up)
 )
+
+
+(defun my/evil-delete-no-kill (orig-fn beg end &optional type _ &rest args)
+  "强制 evil-delete 使用黑洞寄存器，不保存被删除内容。"
+  (apply orig-fn beg end type ?_ args))
+
+(advice-add 'evil-delete :around #'my/evil-delete-no-kill)
+
 
 (provide 'init-evil)
