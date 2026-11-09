@@ -89,9 +89,6 @@
 (use-package lsp-pyright
   :custom (lsp-pyright-langserver-command "pyright"))
 
-(use-package blacken
-  :ensure t)
-(add-hook 'python-mode-hook 'blacken-mode)
 
 (use-package csharp-mode)
 
@@ -111,6 +108,13 @@
   :commands (lsp lsp-deferred)
   :custom
       (lsp-csharp-server-install-dir "~/.dotnet/tools"))
+
+
+(use-package blacken
+  :ensure t
+  :hook (python-mode . blacken-mode)
+  :bind (:map python-mode-map
+              ("C-c l = =" . blacken-buffer)))
 
 (with-eval-after-load 'lsp-mode
     ;; 定义 kotlin-lsp 的启动命令
