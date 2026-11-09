@@ -10,7 +10,8 @@
 ;; (setq compile-command "")
 
 ;;; 虽然使用 pwsh 但是安装环境还是推荐使用 MSYS2，更加方便
-(setq shell-file-name "C:/Users/XINIC/AppData/Local/Microsoft/WindowsApps/Microsoft.PowerShell_8wekyb3d8bbwe/pwsh.exe")
+(setq explicit-shell-file-name "pwsh.exe")
+(setq explicit-pwsh.exe-args '("-NoLogo"))
 
 
 (provide 'init-shell)
