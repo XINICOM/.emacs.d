@@ -70,8 +70,8 @@
 
 
 (defun my/evil-delete-no-kill (orig-fn beg end &optional type _ &rest args)
-  "强制 evil-delete 使用黑洞寄存器，不保存被删除内容。"
-  (apply orig-fn beg end type ?_ args))
+    "强制 evil-delete 使用黑洞寄存器，不保存被删除内容。"
+    (apply orig-fn beg end type ?_ args))
 
 (advice-add 'evil-delete :around #'my/evil-delete-no-kill)
 
