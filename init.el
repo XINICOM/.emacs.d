@@ -6,15 +6,7 @@
 (require 'init-backup)
 
 
-;; (setq shell-file-name "D:/msys64/usr/bin/bash.exe")
-;; (setq shell-command-switch "-c")
-;; (setenv "PATH"
-;;         (concat "D:/msys64/mingw64/bin;D:/msys64/usr/bin;"
-;;                 (getenv "PATH")))
-;; (setenv "MSYSTEM" "MINGW64")
-;; (
-;;  setq compile-command "")
-(require 'init-shell)
+; (require 'init-shell)
 
 
 (require 'init-const)
@@ -22,11 +14,11 @@
 
 (require 'init-startup)
 (require 'init-elpa) ; init the elpa package config, did not announce any package
-(require 'init-packages)
 
 ;; maybe I don't need vim mode
 (require 'init-evil)
 
+(require 'init-packages)
 
 (require 'init-keymap)
 
