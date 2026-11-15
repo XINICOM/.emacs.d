@@ -1,13 +1,12 @@
 ;; -*- lexical-binding: t; -*-
 
 ;; package source
-(setq package-archives '(("gnu"    . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-                         ("nongnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
-			 ("melpa"  . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
-
-;; (setq package-archives '(("gnu"    . "https://mirrors.ustc.edu.cn/elpa/gnu/")
-;;                          ("nongnu" . "https://mirrors.ustc.edu.cn/elpa/nongnu/")
-;;                          ("melpa"  . "https://mirrors.ustc.edu.cn/elpa/melpa/")))
+;; (setq package-archives '(("gnu"    . "https://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+;;                          ("nongnu" . "https://mirrors.tuna.tsinghua.edu.cn/elpa/nongnu/")
+;;    		            ("melpa"  . "https://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+(setq package-archives '(("gnu"    . "https://mirrors.ustc.edu.cn/elpa/gnu/")
+                         ("nongnu" . "https://mirrors.ustc.edu.cn/elpa/nongnu/")
+                         ("melpa"  . "https://mirrors.ustc.edu.cn/elpa/melpa/")))
 
 
 ;; use-package
