@@ -146,7 +146,6 @@
 
 
 (use-package magit)
-(setenv "GIT_CONFIG_GLOBAL" "C:/Users/XINIC/.gitconfig")
 
 
 (use-package multiple-cursors
