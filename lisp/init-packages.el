@@ -46,7 +46,7 @@
   :ensure t
   :hook (after-init . global-company-mode)
   :config
-  (setq lsp-clangd-binary-path "C:/Users/XINIC/AppData/Local/nvim-data/mason/packages/clangd/clangd_22.1.6/bin/clangd.exe")
+  (setq company-case-sensitive nil)
   (setq lsp-completion-provider :none)
   (setq company-minimum-prefix-length 1
         company-show-quick-access t
@@ -104,10 +104,10 @@
          (kotlin-mode . lsp-deferred)
          (python-mode . lsp-deferred)
          (csharp-mode . lsp-deferred)
+         (js-mode . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred)
-  :custom
-      (lsp-csharp-server-install-dir "~/.dotnet/tools"))
+)
 
 
 (use-package blacken
