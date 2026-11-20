@@ -134,6 +134,18 @@
 ;; (use-package dap-mode)
 
 
+(use-package indent-bars
+  :hook (lsp-mode . indent-bars-mode))
+(setq indent-bars-color '("#d4d4d4" :blend 0.2)
+      indent-bars-pattern "."
+      indent-bars-width-frac 0.1
+      indent-bars-pad-frac 0.1
+      indent-bars-zigzag nil
+      indent-bars-color-by-depth nil
+      indent-bars-highlight-current-depth nil
+      indent-bars-display-on-blank-lines t)
+
+
 (use-package yasnippet
   :ensure t
   :hook (after-init . yas-global-mode))
