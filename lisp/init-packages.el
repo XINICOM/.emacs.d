@@ -106,6 +106,7 @@
          (js-mode . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
   :commands (lsp lsp-deferred)
+  :custom (lsp-format-buffer-on-save nil)
 )
 
 
@@ -113,7 +114,8 @@
   :ensure t
   :hook (python-mode . blacken-mode)
   :bind (:map python-mode-map
-              ("C-c l = =" . blacken-buffer)))
+              ("C-c l = =" . blacken-buffer))
+  :config (setq blacken-only-if-project-is-black-enabled nil))
 
 (with-eval-after-load 'lsp-mode
     ;; 定义 kotlin-lsp 的启动命令
@@ -142,9 +144,21 @@
       indent-bars-pad-frac 0.1
       indent-bars-zigzag nil
       indent-bars-color-by-depth nil
-      indent-bars-highlight-current-depth nil
-      indent-bars-display-on-blank-lines t)
-
+      indent-bars-highlight-current-depth nil 
+      indent-bars-display-on-blank-lines t
+      indent-bars-starting-column 0)
+(add-hook 'c++-mode-hook
+	  (lambda ()
+	    (setq-local indent-bars-spacing-override 4
+			indent-bars-no-descend-lists nil
+			indent-bars-no-descend-string nil
+			c-basic-offset 4)))
+(add-hook 'c-mode-hook
+	  (lambda ()
+	    (setq-local indent-bars-spacing-override 4
+			indent-bars-no-descend-lists nil
+			indent-bars-no-descend-string nil
+			c-basic-offset 4)))
 
 (use-package yasnippet
   :ensure t
